@@ -1,0 +1,186 @@
+
+
+
+<app-nav-admin></app-nav-admin>
+<form class="form">
+    <span class="signup">Biblioteca Salvatore</span>
+
+    <span class="title">REGISTRO DE LIBROS</span>
+
+
+    <div class="separator">
+        <hr class="line">
+        <p>idlibro</p>
+        <hr class="line">
+      </div>
+      <div class="input-group mb-3">
+        <input  id="id_libro" name="id_libro" [(ngModel)]="id_libro" type="text" class="form-control" placeholder="idlibro" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalLibros"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="separator">
+        <hr class="line">
+        <p>nombre</p>
+        <hr class="line">
+      </div>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" class="input" placeholder="nombre" class="form--input" required>
+       
+        
+      <div class="separator">
+        <hr class="line">
+        <p>autor</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" id="autor" name="autor" [(ngModel)]="autor" placeholder="autor" class="form--input">
+
+        
+      <div class="separator">
+        <hr class="line">
+        <p>género</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" id="genero" name="genero" [(ngModel)]="genero" placeholder="genero" class="form--input" required>
+
+        
+      <div class="separator">
+        <hr class="line">
+        <p>editorial</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input"  id="edtorial" name="editorial" [(ngModel)]="editorial" placeholder="editorial" class="form--input" required>
+
+        
+      <div class="separator">
+        <hr class="line">
+        <p>estado</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" id="estado" name="estado" [(ngModel)]="nombre" placeholder="estado" class="form--input" required> 
+       
+        
+      <div class="separator">
+        <hr class="line">
+        <p>estante</p>
+        <hr class="line">
+      </div>
+        <div class="input-group ">
+            <input type="text" class="form-control" id="id_estante" name="id_estante" [(ngModel)]="id_estante" placeholder="Estante" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalEstante"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
+    <button class="form--submit">
+        Registrar
+    </button>
+
+    <button class="form--submit" (click)="limpiar()">Limpiar</button>
+</form>
+
+
+
+
+
+
+
+<!-- Modal libros -->
+<div class="modal fade bd-example-modal-lg" id="modalLibros" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      
+      <div class="buscador">
+        <nav class="navbar navbar-light bg-light">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar genero" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="AnnaBanks()">Buscar</button>
+          </form>
+        </nav>
+  
+        <nav class="navbar navbar-light bg-light">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar autor" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </nav>
+      </div>
+      
+
+
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">idlibro</th>
+            <th scope="col">Nombre</th>              
+            <th scope="col">Autor</th>              
+            <th scope="col">Genero</th>              
+            <th scope="col">Editorial</th>              
+            <th scope="col">Estado</th>              
+            <th scope="col">Estante</th>              
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let item of listadoLibros">
+            <th scope="row">
+              <a [routerLink]=""  data-dismiss="modal" (click)="selectLibros(item)">{{ item.id_libro }}</a>
+            </th>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.nombre }} </td>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.autor }} </td>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.genero }}</td>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.editorial }}</td>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.estado }}</td>
+            <td><a [routerLink]="" data-dismiss="modal" (click)="selectLibros(item)"></a> {{ item.id_estante }}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalEstante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estantes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">idestante</th>
+              <th scope="col">Nombre</th>              
+              <th scope="col">genero_libro</th>              
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let item of listadoEstantes">
+              <th scope="row">
+                <a [routerLink]=""  data-dismiss="modal" (click)="selectEstantes(item)"> {{ item.id_estante }}</a>
+              </th>
+              <td><a [routerLink]="" data-dismiss="modal"></a>{{  item.nombre }}</td>
+              <td><a [routerLink]="" data-dismiss="modal"></a>{{ item.genero_lib }}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

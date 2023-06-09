@@ -1,0 +1,49 @@
+<app-nav-admin></app-nav-admin>
+
+<form class="form">
+    <span class="signup">Biblioteca Salvatore</span>
+
+    <span class="title">PRESTAMOS DE LIBROS</span>
+
+
+    <div class="separator">
+        <hr class="line">
+        <p>idlibro</p>
+        <hr class="line">
+      </div>
+      <div class="input-group mb-3">
+        <input  id="idlibro" name="idlibro" type="text" class="form-control" placeholder="idlibro" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalLibros"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="separator">
+        <hr class="line">
+        <p>nombre</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" placeholder="nombre" class="form--input" required>
+       
+        
+      <div class="separator">
+        <hr class="line">
+        <p>Nombre usuario</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" placeholder="nombre usuario" class="form--input">
+
+        
+      <div class="separator">
+        <hr class="line">
+        <p>fecha</p>
+        <hr class="line">
+      </div>
+        <input type="text" class="input" placeholder="Fecha actual" class="form--input" required disabled {{ formattedDate }}>
+
+
+        <span class="sub">Ya tienes una cuenta? <a href="" [routerLink]="['/login']">Inicia sesión</a></span>
+    <button class="form--submit">
+        Registrarse
+    </button>
+</form>

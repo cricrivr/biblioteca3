@@ -1,0 +1,22 @@
+
+<app-nav-usuario></app-nav-usuario>
+
+<form class="form">
+    <span class="signup">Biblioteca Salvatore</span>
+
+    <span class="title">REGISTRO</span>
+    <span class="sub mb">Llena estos campos para poder registrarte</span>
+
+    <div class="grupo">
+        <input type="text" class="input" placeholder="nombre" class="form--input" required>
+        <input type="text" class="input" placeholder="apellido" class="form--input">
+     </div>
+        <input type="text" class="input" placeholder="username" class="form--input" required>
+        <input type="email" class="input" placeholder="email" class="form--input" required>
+        <input type="password" class="input" placeholder="password" class="form--input" required> 
+       
+        <span class="sub">Ya tienes una cuenta? <a href="" [routerLink]="['/login']">Inicia sesión</a></span>
+    <button class="form--submit">
+        Registrarse
+    </button>
+</form>

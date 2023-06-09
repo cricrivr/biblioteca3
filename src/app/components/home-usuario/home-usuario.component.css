@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+.banner{
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.288)), url(/assets/cuesta.jpeg);
+
+    background-size: cover;
+    background-position: center;
+}
+.contenido h1{
+    color: white;
+    position: absolute;
+    margin-top: 5em;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+    font-family:'Courier New', Courier, monospace;
+}
+.contenido p{
+    color: white;
+    position: absolute;
+    margin-top: 17em;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    font-family:'Courier New', Courier, monospace;
+    font-weight:bold;
+    line-height: 2em;
+}
+.contenido .botones{
+    width: 10rem;
+    padding: 10px 0;
+    text-align: center;
+    margin: 20px 20px;
+    border-radius: 25px;
+    border: 2px solid rgb(230, 216, 216);
+    background: transparent;
+    color: white;
+    margin-top: 20em;
+    transform: translateY(-50%);
+    margin-left: 42%;
+}
+.contenido .botones:hover{
+    background-color: rgba(103, 120, 134, 0.692);
+}
+.jumbotron{
+  background-color: rgb(255, 255, 255);
+  padding: 1rem 0rem;
+  text-align: center;
+}
+.jumbotron img{
+  background-color: white;
+  width: 20em;
+  height: auto;
+}
+
+
+@media screen and (max-width: 576px){
+    .contenido p{
+     margin-top: 19em;
+    }
+   
+    .contenido .botones{
+     margin-top: 22em;
+    }
+     }
+   
+     @media screen and (max-width: 384){
+       .contenido p{
+        margin-top: 24em;
+       }
+    }
+
+    .imagenes img{
+        display: inline-flex;
+        width: 40vh;
+        height: auto;
+        margin: 30px;
+        border-radius: 30px;
+    }
+    .imagenes{
+        margin-left: 15%;
+    }
+    .imagenes img:hover{
+        transform: scale(1.050);
+
+    }
+    .cards{
+        width: 15%;
+        height: fit-content;
+        display: inline-flex;
+    }
+    .cards .cont-cards{
+        width: 30%;
+        height: fit-content;
+    }
+
+    .cont-cards img{
+        width: 25vh;
+        height: auto;
+    }
+    .cont-cards h3{
+        font-size: small;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .titulos{
+        font-family: 'Courier New', Courier, monospace;
+        margin-top: 20px;
+    }
+    
+  .separator {
+    width: calc(100% - 10px);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 5px;
+    color: #8B8E98;
+    margin: 0 10px;
+  }
+  .separator .line {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color: #e8e8e8;
+    margin: auto;
+  }
+  .separator > p {
+    word-break: keep-all;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    margin: auto;
+  }
+
+
+
+  
+.card {
+    width: 190px;
+    height: 280px;
+    background: white;
+    padding: .4em;
+    border-radius: 6px;
+    margin-top: 25px;
+    margin-left: 40px;
+  }
+  
+  .card-image {
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+    height: 60%;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .card-image:hover {
+    transform: scale(0.98);
+  }
+  
+  .category {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: rgb(63, 121, 230);
+    padding: 10px 7px 0;
+  }
+  
+  .category:hover {
+    cursor: pointer;
+  }
+  
+  .heading {
+    font-weight: 600;
+    color: rgb(88, 87, 87);
+    padding: 7px;
+  }
+  
+  .heading:hover {
+    cursor: pointer;
+  }
+  
+  .author {
+    color: gray;
+    font-weight: 400;
+    font-size: 11px;
+    padding-top: 20px;
+  }
+  
+  .name {
+    font-weight: 600;
+  }
+  
+  .name:hover {
+    cursor: pointer;
+  }
+  .card-image img{
+    width: 70%;
+    height: auto;
+   margin-left: 25px;
+  }
+  .card-image{
+    background-color: white;
+  }
+  .card{
+    gap: 5px;
+  }
+  .heading{
+    margin-top: 7px;
+  }
+.ver{
+  margin-top: 5px;
+  align-self: flex-end;
+}

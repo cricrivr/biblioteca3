@@ -1,0 +1,21 @@
+
+<app-nav-usuario></app-nav-usuario>
+
+    <div class="form">
+       <p class="title">Biblioteca Salvatore</p>
+   
+       <p class="login">Login</p>
+   
+       <input type="text" class="input" placeholder="username" class="form--input" required>
+       <input type="password" class="input" placeholder="password" class="form--input" required> 
+   
+   
+       <p class="signup">Aún no te has registrado?
+           <a rel="noopener noreferrer" href="" [routerLink]="['/registro']">Registrarse</a>
+       </p>
+   
+       <button class="btn" (click)="login()">Iniciar sesion</button>
+   </div>
+   
+   
+   

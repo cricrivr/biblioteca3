@@ -51,7 +51,11 @@
       </div>
         <input type="date" class="input" id="fechaFin" name="fechaFin" [(ngModel)]="fechaFin" placeholder="fecha final" class="form--input" required>
 
-    <button class="form--submit">
+    
+        <input type="text" class="input" id="estado" name="estado" [(ngModel)]="estado" placeholder="estado" class="form--input" required hidden>
+        <input type="text" class="input" id="idprestar" name="idprestar" [(ngModel)]="idprestar" placeholder="idprestar" class="form--input" required hidden>
+
+    <button class="form--submit" (click)="guardarPrestamo()">
         Registrar
     </button>
     

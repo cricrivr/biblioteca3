@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { estantes } from 'src/app/clases/estantes';
 import { libro } from 'src/app/clases/libro';
+import { prestar } from 'src/app/clases/prestar';
 import { ApiDBserviceService } from 'src/app/services/api-dbservice.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-libro-admin',
@@ -25,8 +28,8 @@ export class LibroAdminComponent {
   estado:number = 0;
   id_estante:number = 0;
 
+  idprestar:number = 0;
   nombre_usuario:string = '';
-  genero_lib:string = '';
   fecha:string = '';
   fechaFin:string = '';
 
@@ -55,15 +58,60 @@ formattedDate = formatDate(this.date, this.format, this.locale);
 
     }
 
+    guardarPrestamo(){
+
+      if(this.nombre = ''){
+        Swal.fire({
+          icon: 'error',
+          title: 'Algo salio mal',
+          text: 'Debe de colocar el nombre del libro.',
+          confirmButtonText: 'Aceptar'
+        });
+         return;
+      }
+       
+      if(this.fechaFin < this.fecha){
+        Swal.fire({
+          icon: 'error',
+          title: 'Algo salio mal',
+          text: 'Verifica la fecha de la entrega del libro.',
+          confirmButtonText: 'Aceptar'
+        });
+         return;
+      }
+
+      let objPrest:prestar = new prestar();
+
+      objPrest.id_libro = this.id_libro;
+      objPrest.nombre = this.nombre;
+      objPrest.nombre_usuario = this.nombre_usuario;
+      objPrest.fecha = this.fecha;
+      objPrest.fechaFin = this.fechaFin;
+      objPrest.estado = this.estado;
+      objPrest.idprestar = this.idprestar;
+
+      this.servicio.savePrest(objPrest).subscribe(resultado =>{
+        if(resultado){
+          this.limpiar();
+          Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'Prestamo realizado.',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      })
+
+    }
 
   //obtener todos los libros
   getLibros(){
     this.servicio.getLibros().subscribe(resultado =>{
       this.listadoLibros = resultado;
-  
     })
   }
 
+  //seleccionar estante
   selectEstantes(objEstantes: estantes){
 console.log(objEstantes);
 

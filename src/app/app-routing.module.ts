@@ -9,6 +9,7 @@ import { RegistrarLibroComponent } from './components/registrar-libro/registrar-
 import { PrestarComponent } from './components/prestar/prestar.component';
 import { LibroAdminComponent } from './components/libro-admin/libro-admin.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { RegistrarEstanteComponent } from './components/registrar-estante/registrar-estante.component';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'prestar-libro', component: PrestarComponent },
   { path: 'libroadmin', component: LibroAdminComponent},
   { path: 'usuarios', component: UsuariosComponent},
+  { path: 'estantes', component: RegistrarEstanteComponent},
   { path: '', component: HomeUsuarioComponent}
 
 ];

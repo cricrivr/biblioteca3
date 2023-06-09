@@ -5,6 +5,8 @@ nombre_usuario:string;
 fecha:string;
 fechaFin:string;
 estado:number;
+idprestar:number;
+
 
 constructor(){
     this.id_libro = 0;
@@ -13,5 +15,6 @@ constructor(){
     this.fecha = '';
     this.fechaFin = '';
     this.estado = 0;
+    this.idprestar = 0;
 }
 }

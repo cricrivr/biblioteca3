@@ -19,9 +19,12 @@ export class UsuariosComponent {
   email:string = '';
   username:string = '';
   password:string = '';
+  estado:number = 0;
+
 
 
   constructor(private http: HttpClient, public servicio: ApiDBserviceService){
+    this.getUsuarios();
 
     Swal.fire({
       icon: 'info',
@@ -29,21 +32,43 @@ export class UsuariosComponent {
       text: 'Para editar un usuario dele click y vaya al boton que dice EDITAR',
     });
     
-    this.getUsuarios();
     
   }
+
+
+  saveUser(){
+    let objRegistro:registro = new registro();
+  
+    objRegistro.nombre = this.nombre;
+    objRegistro.apellido = this.apellido;
+    objRegistro.username = this.username;
+    objRegistro.email = this.email;
+    objRegistro.password = this.password;
+    objRegistro.estado = this.estado;
+    objRegistro.idusuario = this.idusuario;
+  
+    this.servicio.guardarUsuario(objRegistro).subscribe(resultado =>{
+      this.limpiar();
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'El usuario se ha registrado con exito.',
+        confirmButtonText: 'Aceptar'
+      });
+    })
+  }
+ 
 
   //mostrar todos los usuarios
   getUsuarios(){
     this.servicio.getUsuarios().subscribe(resultado =>{
       this.listadoUsuarios = resultado;
       console.log(this.listadoUsuarios);
-    
   
     })
   }
 
-
+//seleccionar usuario
   selectUser(user: registro){
 
     console.log(user);
@@ -60,4 +85,15 @@ export class UsuariosComponent {
       
       }
   }
+
+
+  
+limpiar(){
+
+  this.nombre = '';
+  this.apellido = '';
+  this.username = '';
+  this.email = '';
+  this.password = '';
+}
 }

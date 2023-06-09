@@ -57,7 +57,7 @@
         <p>estado</p>
         <hr class="line">
       </div>
-        <input type="text" class="input" id="estado" name="estado" [(ngModel)]="nombre" placeholder="estado" class="form--input" required> 
+        <input type="text" class="input" id="estado" name="estado" placeholder="estado" class="form--input" required> 
        
         
       <div class="separator">
@@ -72,7 +72,7 @@
             </div>
           </div>
 
-    <button class="form--submit">
+    <button class="form--submit" (click)="guardarLib()">
         Registrar
     </button>
 
@@ -106,8 +106,41 @@
           </form>
         </nav>
       </div>
-      
 
+      <div class="filtros">
+
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Generos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li ><a class="dropdown-item" (click)="getLibros()">Todos</a></li>
+            <li ><a class="dropdown-item">Aventura</a></li>
+            <li><a class="dropdown-item" (click)="cienciaFiccion()">Ciencia ficcion</a></li>
+            <li><a class="dropdown-item" (click)="fantasia()">Fantasia</a></li>
+            <li><a class="dropdown-item" (click)="misterio()">Misterio</a></li>
+          </ul>
+        </div>
+  
+        <br>
+  
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Autores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li ><a class="dropdown-item" (click)="getLibros()">Todos</a></li>
+
+            <li ><a class="dropdown-item" (click)="AnnaBanks()">Anna Banks</a></li>
+            <li><a class="dropdown-item" (click)="neil()">Neil Gaiman</a></li>
+            <li><a class="dropdown-item"  (click)="alexMirez()">Alex Mirez</a></li>
+            <li><a class="dropdown-item" >Oscar Wilde</a></li>
+          </ul>
+        </div>
+
+      </div>
+      
+     
 
 
       <table class="table">
@@ -137,6 +170,8 @@
           
         </tbody>
       </table>
+
+     
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
     </div>

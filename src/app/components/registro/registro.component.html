@@ -8,15 +8,20 @@
     <span class="sub mb">Llena estos campos para poder registrarte</span>
 
     <div class="grupo">
-        <input type="text" class="input" placeholder="nombre" class="form--input" required>
-        <input type="text" class="input" placeholder="apellido" class="form--input">
+        <input type="text" class="input" placeholder="nombre" id="nombre" name="nombre" [(ngModel)]="nombre" class="form--input" required>
+        <input type="text" class="input" placeholder="apellido"  id="apellido" name="apellido" [(ngModel)]="apellido" class="form--input">
      </div>
-        <input type="text" class="input" placeholder="username" class="form--input" required>
-        <input type="email" class="input" placeholder="email" class="form--input" required>
-        <input type="password" class="input" placeholder="password" class="form--input" required> 
+        <input type="text" class="input" placeholder="username"  id="username" name="username" [(ngModel)]="username" class="form--input" required>
+        <input type="email" class="input" placeholder="email" id="email" name="email" [(ngModel)]="email" class="form--input" required>
+        <input type="password" class="input" placeholder="password" id="password" name="password" [(ngModel)]="password" class="form--input" required>
+
+        <input type="text" class="input" placeholder="estado" id="estado" name="estado" [(ngModel)]="estado" class="form--input" hidden> 
+       
+        <input type="text" class="input" placeholder="idusuario" id="idusuario" name="idusuario" [(ngModel)]="idusuario"  class="form--input" hidden> 
        
         <span class="sub">Ya tienes una cuenta? <a href="" [routerLink]="['/login']">Inicia sesión</a></span>
-    <button class="form--submit">
+
+    <button class="form--submit" (click)="saveUser()">
         Registrarse
     </button>
 </form>

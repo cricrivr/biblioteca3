@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { libro } from '../clases/libro';
 import { registro } from '../clases/registro';
 import { estantes } from '../clases/estantes';
+import { prestar } from '../clases/prestar';
 
 
 @Injectable({
@@ -36,6 +37,10 @@ libroID(id_libro: number): Observable<Array<libro>>{
   return this.http.post<Array<libro>>(this.server + '/api/buscarID', {});
 }
 
+
+
+// FILTRAR POR GENEROS
+
 //mostrar libros de accion
 accion(): Observable<Array<libro>>{
   return this.http.post<Array<libro>>(this.server + '/api/libroAccion', {});
@@ -51,6 +56,16 @@ cienciaficcion(): Observable<Array<libro>>{
   return this.http.post<Array<libro>>(this.server + '/api/libroCienciaFiccion', {});
 }
 
+//libros de misterio
+misterio(): Observable<Array<libro>>{
+  return this.http.post<Array<libro>>(this.server + '/api/misterybooks', {});
+  
+}
+
+
+
+// FILTRAR POR AUTOR
+
 //mostrar libros de ciencia anna banks
 annaBanks(): Observable<Array<libro>>{
   return this.http.post<Array<libro>>(this.server + '/api/annabanks', {});
@@ -61,6 +76,11 @@ neil(): Observable<Array<libro>>{
   return this.http.post<Array<libro>>(this.server + '/api/neilGaiman', {});
 }
 
+//mostrar libros de ciencia ficcion
+AlexMirex(): Observable<Array<libro>>{
+  return this.http.post<Array<libro>>(this.server + '/api/alexmirez', {});
+}
+
 
 
 // REGISTRO
@@ -69,26 +89,33 @@ neil(): Observable<Array<libro>>{
 getUsuarios(): Observable<Array<registro>>{
   return this.http.post<Array<registro>>(this.server + '/api/usuarios', {});
 }
-
-
 //guardar o actualizar
-guardarUsuario(pbjRegistro: registro): Observable<boolean> {
-  return  this.http.post<boolean>(this.server + '/api/registrar', { 'registro': pbjRegistro});
+guardarUsuario(objRegistro: registro): Observable<boolean> {
+  return  this.http.post<boolean>(this.server + '/api/registrar', { 'registro': objRegistro});
 }
 
 
-//ESTANTES
+//  ESTANTES
 
 //mostrar
 getEstantes(): Observable<Array<estantes>>{
   return this.http.post<Array<estantes>>(this.server + '/api/getEstantes', {});
 }
-
 //guardar o actualizar
 guardarEstante(objEstante: estantes): Observable<boolean> {
-  return  this.http.post<boolean>(this.server + '/api/guardarEst', { 'estantes': objEstante});
+  return  this.http.post<boolean>(this.server + '/api/guardarEst', { 'estante': objEstante});
 }
 
 
+// PRESTAR
 
+//guardar prest
+savePrest(objPrest: prestar): Observable<boolean> {
+  return  this.http.post<boolean>(this.server + '/api/guardarPrest', { 'prestar': objPrest});
 }
+//mostrar todos
+ getPrest(): Observable<Array<prestar>>{
+    return this.http.post<Array<prestar>>(this.server + '/api/mostrarPrest', {});
+  }
+}
+

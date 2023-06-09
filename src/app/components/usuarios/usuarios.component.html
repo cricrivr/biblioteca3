@@ -3,8 +3,8 @@
 
 <div class="card flex justify-content-center">
     <span class="p-buttonset">
-        <button pButton pRipple data-toggle="modal" data-target="#modalUser" label="Registrar" icon="pi pi-check"></button>
-        <button pButton pRipple data-toggle="modal" data-target="#modalRegistro" label="Editar" icon="pi pi-trash"></button>
+        <button pButton pRipple data-toggle="modal" data-target="#modalRegistro" label="Registrar" icon="pi pi-check"></button>
+        <button pButton pRipple data-toggle="modal" data-target="#modalEditar" label="Editar" icon="pi pi-trash"></button>
     </span>
 </div>
 
@@ -38,36 +38,70 @@
 
   
 
-<!-- Modal libros -->
-<div class="modal fade bd-example-modal-lg" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- Modal REGISTRAR usuario -->
+<div class="modal fade bd-example-modal-lg" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">idusuario</th>
-            <th scope="col">Nombre</th>              
-            <th scope="col">Apellido</th>              
-            <th scope="col">Email</th>              
-            <th scope="col">Username</th>              
-            <th scope="col">password</th>              
-          </tr>
-        </thead>
-        <tbody >
-          <tr *ngFor="let item of listadoUsuarios">
-            <th scope="row">
-              <a [routerLink]=""  data-dismiss="modal">{{ item.idusuario }}</a>
-            </th>
-            <td><a [routerLink]="" >{{ item.nombre }}</a></td>
-            <td><a [routerLink]="" >{{ item.apellido }}</a></td>
-            <td><a [routerLink]="" >{{ item.email }}</a></td>
-            <td><a [routerLink]="" >{{ item.username }}</a></td>
-            <td><a [routerLink]="" >{{ item.password }}</a></td>
-          </tr>
-          
-        </tbody>
-      </table>
+      <form class="form">
+        <span class="signup">Biblioteca Salvatore</span>
+    
+        <span class="title">REGISTRO DE USUARIOS</span>
+    
+
+        <div class="separator">
+          <hr class="line">
+          <p>idusuario</p>
+          <hr class="line">
+        </div>
+        <div class="input-group mb-3">
+          <input  id="idusuario" name="idusuario"  [(ngModel)]="idusuario" type="text" class="form-control" placeholder="idusuario" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+  
+        </div> 
+          <div class="separator">
+            <hr class="line">
+            <p>nombre</p>
+            <hr class="line">
+          </div>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" class="input" placeholder="nombre" class="form--input" required>
+           
+            
+          <div class="separator">
+            <hr class="line">
+            <p>apellido</p>
+            <hr class="line">
+          </div>
+            <input type="text" class="input" id="apellido" [(ngModel)]="apellido" name="apellido" placeholder="apellido" class="form--input">
+    
+            
+          <div class="separator">
+            <hr class="line">
+            <p>email</p>
+            <hr class="line">
+          </div>
+            <input type="text" class="input" id="email" name="email" [(ngModel)]="email"  placeholder="email" class="form--input" required>
+    
+            
+          <div class="separator">
+            <hr class="line">
+            <p>username</p>
+            <hr class="line">
+          </div>
+            <input type="text" class="input"  id="username" name="username" [(ngModel)]="username" placeholder="username" class="form--input" required>
+    
+            
+          <div class="separator">
+            <hr class="line">
+            <p>password</p>
+            <hr class="line">
+          </div>
+            <input type="text" class="input" id="password" name="password" [(ngModel)]="password"  placeholder="password" class="form--input" required> 
+    
+        <button class="form--submit" (click)="saveUser()">
+            Registrar
+        </button>
+    
+    </form>
     
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
@@ -79,8 +113,9 @@
 
 
 
-<!-- Modal libros -->
-<div class="modal fade bd-example-modal-lg" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+<!-- Modal EDITAR usuarios -->
+<div class="modal fade bd-example-modal-lg" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -141,11 +176,10 @@
             
         
     
-        <button class="form--submit">
+        <button class="form--submit" (click)="saveUser()">
             Registrar
         </button>
     
-        <button class="form--submit">Limpiar</button>
     </form>
     
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

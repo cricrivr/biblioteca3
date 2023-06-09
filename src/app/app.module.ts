@@ -20,6 +20,7 @@ import { RegistrarLibroComponent } from './components/registrar-libro/registrar-
 import { PrestarComponent } from './components/prestar/prestar.component';
 import { LibroAdminComponent } from './components/libro-admin/libro-admin.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { RegistrarEstanteComponent } from './components/registrar-estante/registrar-estante.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     RegistrarLibroComponent,
     PrestarComponent,
     LibroAdminComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    RegistrarEstanteComponent
   ],
   imports: [
     BrowserModule,

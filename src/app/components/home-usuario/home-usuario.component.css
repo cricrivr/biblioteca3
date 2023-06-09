@@ -11,7 +11,7 @@
 .contenido h1{
     color: white;
     position: absolute;
-    margin-top: 5em;
+    margin-top: 7em;
     transform: translateY(-50%);
     text-align: center;
     width: 100%;
@@ -21,7 +21,7 @@
 .contenido p{
     color: white;
     position: absolute;
-    margin-top: 17em;
+    margin-top: 24em;
     transform: translateY(-50%);
     text-align: center;
     width: 100%;
@@ -38,7 +38,7 @@
     border: 2px solid rgb(230, 216, 216);
     background: transparent;
     color: white;
-    margin-top: 20em;
+    margin-top: 27em;
     transform: translateY(-50%);
     margin-left: 42%;
 }
@@ -75,7 +75,7 @@
 
     .imagenes img{
         display: inline-flex;
-        width: 40vh;
+        width: 25vh;
         height: auto;
         margin: 30px;
         border-radius: 30px;

@@ -4,6 +4,9 @@ import { libro } from 'src/app/clases/libro';
 import { ApiDBserviceService } from 'src/app/services/api-dbservice.service';
 import { LibroAdminComponent } from '../libro-admin/libro-admin.component';
 import { estantes } from 'src/app/clases/estantes';
+import Swal from 'sweetalert2';
+import { ResourceLoader } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-registrar-libro',
@@ -33,6 +36,32 @@ export class RegistrarLibroComponent {
     
   }
 
+  //guardar libro
+  guardarLib(){
+    let objLibros:libro = new libro();
+
+    objLibros.id_libro = this.id_libro;
+    objLibros.nombre = this.nombre;
+    objLibros.autor = this.autor;
+    objLibros.genero = this.genero;
+    objLibros.editorial = this.editorial;
+    objLibros.estado = this.estado;
+    objLibros.id_estante = this.id_estante;
+
+    this.servicio.guardarLibros(objLibros).subscribe(resultado => {
+      if(resultado){
+        this.limpiar();
+        Swal.fire({
+          icon: 'success',
+          title: '¡Éxito!',
+          text: 'El libro se ha registrado con exito.',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    })
+
+  }
+
   //obtener todos los libros
   getLibros(){
     this.servicio.getLibros().subscribe(resultado =>{
@@ -49,6 +78,7 @@ export class RegistrarLibroComponent {
     })
   }
 
+  //seleccionar estante
   selectEstantes(objEstante: estantes){
 
     this.id_estante = objEstante.id_estante;
@@ -61,11 +91,61 @@ buscarLibroID(id_libro:number){
    })
  }
 
+
+ // FILTRAR POR AUTOR
+
  //libros de anna banks
  AnnaBanks(){
   this.servicio.annaBanks().subscribe(resultado => {
+if(resultado){
+  this.listadoLibros = resultado;
+}
 
+  })
+ }
 
+ //libros de Neil Gaiman
+ neil(){
+  this.servicio.neil().subscribe(resultado => {
+    if(resultado){
+      this.listadoLibros = resultado;
+    }
+  })
+ }
+
+ //libros de Alex Mirez
+ alexMirez(){
+  this.servicio.AlexMirex().subscribe(resultado => {
+    if(resultado){
+      this.listadoLibros = resultado;
+    }
+  })
+ }
+
+ // FILTRAR POR GENERO
+
+ //libros de ciencia ficcion
+ cienciaFiccion(){
+  this.servicio.cienciaficcion().subscribe(resultado => {
+    if(resultado){
+      this.listadoLibros = resultado;
+    }
+  })
+ }
+
+ fantasia(){
+  this.servicio.fantasia().subscribe(resultado =>{
+    if(resultado){
+      this.listadoLibros = resultado;
+    }
+  })
+ }
+
+ misterio(){
+  this.servicio.misterio().subscribe(resultado => {
+    if(resultado){
+      this.listadoLibros = resultado;
+    }
   })
  }
 
